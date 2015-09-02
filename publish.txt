@@ -1,0 +1,3 @@
+scp ~/Projects/etc/http/home/index.html nikni292@remote-und.ida.liu.se:www-pub/TDP001
+cp ~/Projects/etc/http/home/main.css nikni292@remote-und.ida.liu.se:www-pub/TDP001
+

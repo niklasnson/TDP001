@@ -1,0 +1,96 @@
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 0.9em;
+}
+
+.site {
+  margin: 0 auto;
+  max-width: 64em;
+}
+
+nav {
+  margin: 2em 0;
+  padding: 0.5em 0;
+  border-bottom: solid 0.3em #eee;
+}
+
+nav > a, nav > span {
+  padding-right: 10px;
+}
+
+nav > span {
+  font-weight: bold;
+}
+
+footer {
+  margin: 2em 0;
+  padding: 0.5em 0;
+  border-top: solid 0.3em #eee;
+  display: block;
+}
+
+footer > div {
+  vertical-align: top;
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+}
+
+a {
+  color: #008cba;
+  text-decoration: none;
+}
+
+main > a {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #006687;
+}
+
+h1 {}
+h2, h3 {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+h3 {
+}
+
+ul#menu {
+  list-style-type: square
+}
+
+ul#menu > li {
+  margin: 0.4em 0em;
+}
+
+article {
+  margin: 3em 3em;
+}
+
+span.code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.9em;
+  display: block;
+  padding: 0.5em;
+  margin: 0.5em 0em;
+  background-color: #EAEAEA;
+}
+
+article > header {
+  font-weight: bold;
+  font-size: 2em;
+  padding: 0.5em 0;
+  border-top: solid 0.09em #eee;
+}
+
+footer > div > ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+footer > div > ul > li {
+  list-style: none;
+}
