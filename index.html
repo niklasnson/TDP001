@@ -7,49 +7,79 @@
   </head>
   <body>
     <div class="site">
-
       <nav>
         <span>niklas nson</span>
         <a href="index.html">hem</a>
       </nav>
 
       <main>
-
         <ul id="menu">
           <li><a href="#036">Vecka 36 Terminal Uppgifter</a></li>
           <!-- <li><a href="#037"></a></li> -->
         </ul>
+        <!--
+        <article id="037">
+          <h2>Intro Lab</h2>
+          <div>
+            <strong><strong>
+            <span class="code"></span>
+            <p class="desc"></span>
+          </div>
+        </article>
+        -->
 
         <article id="036">
           <h2>Vecka 36 Terminal Uppgifter</h2>
-          <p>
+          <div>
             <strong>Uppgift 1:</strong> Hur kan man med grep hitta alla rader med namn (förnamn eller efternamn) som slutar med tecknen "on"?
-            <span class="code">$ grep on resultat.txt</span>
-          </p>
+            <span class="code">$ grep -e 'on' resultat.txt</span>
+            <p class="desc">
+              <span>grep</span> grep söker igenom filen efter en given text och matchar denna. matchning sätts med flaggan -e.   
+            </p>
+          </div>
 
-          <p><strong>Uppgift 2:</strong> Skriv ut de fem första efternamnen som inte avslutas med "son"
+          <div>
+            <strong>Uppgift 2:</strong> Skriv ut de fem första efternamnen som inte avslutas med "son"
             <span class="code">$ grep -v -e 'son' resultat.txt | head -n5</span>
-          </p>
-         
+            <p class="desc">
+              <span>grep -v -e 'son' resultat.txt</span> genom flaggan -v så inventerar vi sökningen, dvs söker efter alla som INTE innehåller 'son'
+            </p>
+            <p class="desc">
+              <span>head -n5</span> ta bara de första fem matchningarna. 
+            </p>
+          </div>
 
-          <p><strong>Uppgift 3:</strong> I mappen /usr/lib finns det flera filer som har namn på formatet xxx.so.d, där xxx är dess namn och d är 
+          <div>
+            <strong>Uppgift 3:</strong> I mappen /usr/lib finns det flera filer som har namn på formatet xxx.so.d, där xxx är dess namn och d är 
             ett (eller flera separerade med .) heltal. Skriv ut alla dessa filers namn (dvs xxx-delen) till en fil med valfritt namn.
 
-            <span class="code">>$ ls /usr/lib/*.so.* | xargs -n1 basename | cut -d'.' -f1 > files.txt</span>
-            den första delen av kommandot listar alla filer i katalogen som matchar *.so.*
-            den andra delen bestämmer att vi bara skall använda filnamnet inte path (/usr/lib/)
-            den tredje delen klipper ut (raderar) allt som är efter den första punken
-            och sen avslutas kommandot med att skriva till filen files med > files.txt i stället för att skriva till skärmen.
-         </p>
+           <span class="code">>$ ls /usr/lib/*.so.* | xargs -n1 basename | sed "s/.so/|/" | cut -d'|' -f1 > files.txt</span>
+            <p class="desc">
+              <span>ls /usr/lib/*.so.*</span> lista alla filer i katalogen som matchar xxx.so.d(.d.d.d.d)
+            </p>
+            <p class="desc">
+              <span>xargs -n1 basename</span> med hjälp av xargs så plockar vi bort path (/usr/lib/testfil.so.001 => testfil.so.001)
+            </p>
+            <p class="desc">
+              <span>sed "s/.so/|/"</span> eftersom det som är gemensamt med alla filer är .so men verktyget cut bara hanterar ett tecken så byter vi ut alla .so mot tecknet | (då det inte förekommer i några filnamn i den katalogen)
+            </p>
+            <p class="desc">
+              <span>cut -d'|' -f1 > files.txt</span> vi använder sedan verktyget cut för att klippa bort allt efter tecknet | samt tecknet |, vi avslutar sedan med att skriva till en fil istället för att skriva till skärmen. 
+            </p>
+         </div>
   
-          <p><strong>Uppgift 4:</strong> Ge ett kommando som (endast) skriver ut hur många rader i filen som har ett namn som har bokstäverna "an" efter varandra.
+        <div>
+          <strong>Uppgift 4:</strong> Ge ett kommando som (endast) skriver ut hur många rader i filen som har ett namn som har bokstäverna "an" efter varandra.
 
           <span class="code">$ grep -i an resultat.txt | wc -l</span>
-          den första delen hittar alla an/An/AN/aN i filen
-          den andra delen räknar antal rader.
+          <p class="desc">
+            <span>grep -i an resultat.txt</span> med flaggan -i så söker vi både på stora och små bokstäver. vi ser här att vi kan strunta i -e flaggan och bara skriva sökordet. detta fungerar i tidigare exempel med. 
           </p>
 
-
+          <p class="desc">
+            <span>wc -l</span> vi använder funktionen wc för att räkna antalet rader i en fil eller utskrift, flaggan -l berättar att det är just antalet rader som vi skall räkna.
+          </p>
+        </div>
         </article>
 
         <!--
@@ -73,6 +103,7 @@
         </div>
 
         <div>
+          <!-- tom just nu -->
         </div>
 
         <div>
