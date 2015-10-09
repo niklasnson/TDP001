@@ -13,6 +13,7 @@
       </nav>
 
         <ul id="menu">
+          <li><a href="#037">Vecka 37 Terminal Uppgifter</a></li>
           <li><a href="#036">Vecka 36 Terminal Uppgifter</a></li>
           <!-- <li><a href="#037"></a></li> -->
         </ul>
@@ -26,6 +27,38 @@
           </div>
         </article>
         -->
+
+        <article id="037">
+          <h2>Vecka 37 Terminal Uppgifter</h2>
+          <div>
+            <strong>Uppgift 1:</strong> Använd find för att lista alla python-filer som går att köra (har x-flaggan satt samt inleds med #!)
+                och ligger maximalt tre kataloger under din hemkatalog.
+            <span class="code">find ~ -name "*.py" -maxdepth 4 -perm +111 -exec grep "#\!" -q {} + -print</span>
+            <p class="desc">
+              <span>$ find ~ -name "*.py"</span> i hemmakatalogen börja att leta efter alla filer som har ett namn som matchar [sträng].py, om användaren redan antas stå i hemkatalogen så kan man använda "." i stället för "~".
+            </p>
+            <p class="desc">
+              <span>-maxdepth 4</span> gå max tre nivår av kataloger (topp level + 3).
+            </p>
+            <p class="desc">
+              <span>-perm +111</span> endast filer som är körbara, -executable visar ju endast de som aktuell användare kan köra. Dessutom saknas -executable i det operativ som jag oftast använder.
+            </p>
+            <p class="desc">
+              <span>-exec grep "#\!" -q {} \; -print</span> endast filer som innehåller #!, vi måste escapa ! (detta gör vi genom \).
+            </p>
+          </div>
+          <div>
+            <strong>Uppgift 2:</strong> Använd find för att lista alla filer under din hemkatalog som är större än 5Mb stora.
+                Se till att även filstorleken listas.
+            <span class="code">$ find ~ -size +5M -type f -exec ls -s {} +</span>
+            <p class="desc"><span>find ~ -size +5M -type f</span> hitta filer som är större än 5M, vi kommer endast att söka på filer (med flagga -type)</p>
+            <p class="desc"><span>-exec ls -sd {} +</span> anropar ls - list directory contents - som visar storleken på filen med flaggan -s, -s är lite förvirrande då filstorleken kommer att visasi i hur många blocksizes i block om 512 som vi använder. Det är ju mindre lätt att läsa för en normal användare, så kanske är det bättre att anropa med:  </p>
+            <span class="code">$ find ~ -size +5M -type f -exec ls -l {} +</span>
+            <p class="desc">Då kommer mer information att skrivas ut så som rättigheter och ägare men vi får även filstorleken i ett mer läsbart format, men det tar upp mer information på skärmen.</p>
+
+          </div>
+        </article>        
+
 
         <article id="036">
           <h2>Vecka 36 Terminal Uppgifter</h2>
